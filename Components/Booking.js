@@ -123,24 +123,26 @@ const Booking = () => {
               </div>
             </div>
           </div>
-          {roomsSlider &&
-            roomList?.map(
-              ({
-                id,
-                room_title,
-                room_description,
-                room_image,
-                room_price,
-              }) => (
-                <RoomSlider
-                  key={id}
-                  room_title={room_title}
-                  room_description={room_description}
-                  room_image={room_image}
-                  room_price={room_price}
-                />
-              )
-            )}
+          <div className="flex sliderContainer">
+            {roomsSlider &&
+              roomList?.map(
+                ({
+                  id,
+                  room_title,
+                  room_description,
+                  room_image,
+                  room_price,
+                }) => (
+                  <RoomSlider
+                    key={id}
+                    room_title={room_title}
+                    room_description={room_description}
+                    room_image={room_image}
+                    room_price={room_price}
+                  />
+                )
+              )}
+          </div>
           <div className="flex">
             <button className="flex-grow text-gray-500" onClick={cancelBookinn}>
               Cancel

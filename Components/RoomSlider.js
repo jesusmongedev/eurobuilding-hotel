@@ -1,7 +1,7 @@
 const RoomSlider = ({ room_title, room_image, room_price }) => {
   return (
-    <div className="w-full max-w-[328px] mx-auto my-2">
-      <div className="relative flex flex-col justify-end background min-h-[300px] py-3  bg-no-repeat bg-cover rounded-md  cursor-pointer text-white">
+    <div className="w-full max-w-[328px] mx-auto">
+      <div className="relative flex flex-col justify-end background min-h-[300px] py-3  bg-no-repeat bg-cover rounded-md text-white">
         <div className="absolute top-0 bg-[#4133FF] rounded-t-md w-full">
           <h2 className="text-md text-center uppercase text-white">
             {room_title}
