@@ -7,3 +7,6 @@
   overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
 }
+.sliderCards {
+  scroll-snap-align: center;
+}
