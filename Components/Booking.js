@@ -123,7 +123,7 @@ const Booking = () => {
               </div>
             </div>
           </div>
-          <div className="flex sliderContainer gap-20 w-full max-w-[280px] mx-auto my-2">
+          <div className="flex sliderContainer gap-20 w-full max-w-[280px] mx-auto my-2 pb-4 scrollbar-thin scrollbar-thumb-primary scrollbar-track-rounded-full scrollbar-track-blue-100">
             {roomsSlider &&
               roomList?.map(
                 ({

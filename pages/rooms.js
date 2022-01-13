@@ -26,9 +26,9 @@ const Rooms = () => {
       });
   }, []);
 
-  console.log(adults);
+  // console.log(adults);
   // Data requested with all the Room's information
-  console.log(roomList);
+  // console.log(roomList);
 
   return (
     <div>

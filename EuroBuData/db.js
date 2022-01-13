@@ -7,7 +7,7 @@ class Database {
     return new Promise(async (resolve, reject) => {
       try {
         const asArray = Object.values(allData);
-        console.log("allDATA:", asArray);
+        // console.log("allDATA:", asArray);
         await randomDelay();
         resolve(asArray);
       } catch (error) {
