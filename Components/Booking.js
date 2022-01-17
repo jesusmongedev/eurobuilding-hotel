@@ -98,27 +98,27 @@ const Booking = () => {
             <div className="flex gap-3">
               <div className="flex items-center gap-2">
                 <p>Adultos</p>
-                <PlusIcon
-                  className="h-6 cursor-pointer border-2 border-purple-800 rounded-full p-1"
-                  onClick={() => setAdults((adults += 1))}
-                />
-                <span className="text-gray-500 font-semibold">{adults}</span>
                 <MinusIcon
                   className="h-6 cursor-pointer border-2 border-purple-800 rounded-full p-1"
                   onClick={decrementAdults}
+                />
+                <span className="text-gray-500 font-semibold">{adults}</span>
+                <PlusIcon
+                  className="h-6 cursor-pointer border-2 border-purple-800 rounded-full p-1"
+                  onClick={() => setAdults((adults += 1))}
                 />
               </div>
 
               <div className="flex items-center gap-2">
                 <p>Niños</p>
-                <PlusIcon
-                  className="h-6 cursor-pointer border-2 border-purple-800 rounded-full p-1"
-                  onClick={() => setKids((kids += 1))}
-                />
-                <span className="font-semibold">{kids}</span>
                 <MinusIcon
                   className="h-6 cursor-pointer border-2 border-purple-800 rounded-full p-1"
                   onClick={decrementKids}
+                />
+                <span className="font-semibold">{kids}</span>
+                <PlusIcon
+                  className="h-6 cursor-pointer border-2 border-purple-800 rounded-full p-1"
+                  onClick={() => setKids((kids += 1))}
                 />
               </div>
             </div>
