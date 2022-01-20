@@ -5,7 +5,7 @@
 .sliderContainer {
   overflow-x: scroll;
   overscroll-behavior-x: contain;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory;
 }
 .sliderCards {
   scroll-snap-align: center;
