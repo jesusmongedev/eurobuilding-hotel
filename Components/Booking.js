@@ -1,64 +1,64 @@
-import { useEffect, useState } from "react";
-import { ChevronDownIcon, PlusIcon, MinusIcon } from "@heroicons/react/outline";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { useEffect, useState } from 'react'
+import { ChevronDownIcon, PlusIcon, MinusIcon } from '@heroicons/react/outline'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 // import { format } from "date-fns";
-import { useRouter } from "next/router";
-import RoomSlider from "./RoomSlider";
+import { useRouter } from 'next/router'
+import RoomSlider from './RoomSlider'
 
 const Booking = () => {
-  const [datePicker, setDatePicker] = useState(false);
-  const [roomsSlider, setRoomsSlider] = useState(false);
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(null);
-  const [roomList, setRoomList] = useState([]);
+  const [datePicker, setDatePicker] = useState(false)
+  const [roomsSlider, setRoomsSlider] = useState(false)
+  const [startDate, setStartDate] = useState(new Date())
+  const [endDate, setEndDate] = useState(null)
+  const [roomList, setRoomList] = useState([])
 
   // const formattedStartDate = format(new Date(startDate), "dd/MM/yy");
   // const formattedEndDate = format(new Date(endDate), "dd/MM/yy");
 
-  const [adults, setAdults] = useState(1);
-  const [kids, setKids] = useState(0);
-  const router = useRouter();
+  const [adults, setAdults] = useState(1)
+  const [kids, setKids] = useState(0)
+  const router = useRouter()
 
   const onChange = (dates) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
-  };
+    const [start, end] = dates
+    setStartDate(start)
+    setEndDate(end)
+  }
 
   // Decrement number of adults and kids
   const decrementAdults = () => {
-    setAdults(adults > 1 ? adults - 1 : (adults = 1));
-  };
+    setAdults(adults > 1 ? adults - 1 : (adults = 1))
+  }
   const decrementKids = () => {
-    setKids(kids > 1 ? kids - 1 : (kids = 0));
-  };
+    setKids(kids > 1 ? kids - 1 : (kids = 0))
+  }
   // Cancel Booking close Date Range Picker and Number of Guest inputs
   const cancelBookinn = () => {
-    setRoomsSlider(false);
-    setDatePicker(false);
-  };
+    setRoomsSlider(false)
+    setDatePicker(false)
+  }
   // roomPage function will open the RoomPage
   const roomPage = () => {
     router.push({
-      pathname: "/rooms",
+      pathname: '/rooms',
       query: {
         adults,
         kids,
         startDate: startDate.toISOString(),
         endDate: endDate.toISOString(),
       },
-    });
-  };
+    })
+  }
   // Users data provide in the Home page
   useEffect(() => {
     window
-      .fetch("/api/rooms")
+      .fetch('/api/rooms')
       .then((res) => res.json())
       .then(({ rooms }) => {
-        setRoomList(rooms);
-      });
-  }, []);
+        setRoomList(rooms)
+      })
+  }, [])
 
   return (
     <div className="p-5 flex flex-col gap-2">
@@ -69,11 +69,11 @@ const Booking = () => {
           className="flex gap-5 border-2 border-purple-800 rounded-lg px-3"
           onClick={() => setDatePicker(!datePicker)}
         >
-          Check in <ChevronDownIcon className="h-6 cursor-pointer" />{" "}
+          Check in <ChevronDownIcon className="h-6 cursor-pointer" />{' '}
         </span>
         <span className="flex gap-5 border-2 border-purple-800 rounded-lg px-3">
           Check out
-          <ChevronDownIcon className="h-6 cursor-pointer" />{" "}
+          <ChevronDownIcon className="h-6 cursor-pointer" />{' '}
         </span>
       </div>
 
@@ -123,7 +123,7 @@ const Booking = () => {
               </div>
             </div>
           </div>
-          <div className="flex sliderContainer gap-20 w-full max-w-[280px] mx-auto my-2 pb-4 scrollbar-thin scrollbar-thumb-primary scrollbar-track-rounded-full scrollbar-track-blue-100">
+          <div className="flex sliderContainer gap-20 w-full max-w-[280px] mx-auto my-2 pb-4">
             {roomsSlider &&
               roomList?.map(
                 ({
@@ -164,7 +164,7 @@ const Booking = () => {
         RESERVAR
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Booking;
+export default Booking
