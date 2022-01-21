@@ -1,20 +1,21 @@
-import Image from "next/image";
-import { MenuIcon, UserCircleIcon } from "@heroicons/react/solid";
-import { useRouter } from "next/router";
+import Image from 'next/image'
+import { MenuIcon, UserCircleIcon } from '@heroicons/react/solid'
+import { useRouter } from 'next/router'
 
 const Header = () => {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <div>
-      <header className="sticky top-0 z-10 grid grid-cols-3 shadow-md p-5 bg-purple-800 text-white md:px-10">
+      <header className="sticky top-0 z-10 grid grid-cols-3 shadow-md p-5 bg-primary text-white md:px-10">
         <div className="relative flex items-center h-10 cursor-pointer my-auto">
           <Image
-            onClick={() => router.push("/")}
+            onClick={() => router.push('/')}
             src="https://i.imgur.com/IFs5niC.png"
             layout="fill"
             objectFit="contain"
             objectPosition="left"
+            alt="EuroBuilding logo"
           />
         </div>
         <div className="flex items-center justify-center gap-1">
@@ -30,7 +31,7 @@ const Header = () => {
         </div>
       </header>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

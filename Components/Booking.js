@@ -66,12 +66,12 @@ const Booking = () => {
 
       <div className="flex justify-between">
         <span
-          className="flex gap-5 border-2 border-purple-800 rounded-lg px-3"
+          className="flex gap-5 border-2 border-primary rounded-lg px-3"
           onClick={() => setDatePicker(!datePicker)}
         >
           Check in <ChevronDownIcon className="h-6 cursor-pointer" />{' '}
         </span>
-        <span className="flex gap-5 border-2 border-purple-800 rounded-lg px-3">
+        <span className="flex gap-5 border-2 border-primary rounded-lg px-3">
           Check out
           <ChevronDownIcon className="h-6 cursor-pointer" />{' '}
         </span>
@@ -94,17 +94,17 @@ const Booking = () => {
           </div>
 
           <h2 className="text-xl font-semibold text-center">Huéspedes</h2>
-          <div className="flex justify-center border-b border-purple-800 py-2">
+          <div className="flex justify-center border-b border-primary py-2">
             <div className="flex gap-3">
               <div className="flex items-center gap-2">
                 <p>Adultos</p>
                 <MinusIcon
-                  className="h-6 cursor-pointer border-2 border-purple-800 rounded-full p-1"
+                  className="h-6 cursor-pointer border-2 border-primary rounded-full p-1"
                   onClick={decrementAdults}
                 />
                 <span className="text-gray-500 font-semibold">{adults}</span>
                 <PlusIcon
-                  className="h-6 cursor-pointer border-2 border-purple-800 rounded-full p-1"
+                  className="h-6 cursor-pointer border-2 border-primary rounded-full p-1"
                   onClick={() => setAdults((adults += 1))}
                 />
               </div>
@@ -112,12 +112,12 @@ const Booking = () => {
               <div className="flex items-center gap-2">
                 <p>Niños</p>
                 <MinusIcon
-                  className="h-6 cursor-pointer border-2 border-purple-800 rounded-full p-1"
+                  className="h-6 cursor-pointer border-2 border-primary rounded-full p-1"
                   onClick={decrementKids}
                 />
                 <span className="font-semibold">{kids}</span>
                 <PlusIcon
-                  className="h-6 cursor-pointer border-2 border-purple-800 rounded-full p-1"
+                  className="h-6 cursor-pointer border-2 border-primary rounded-full p-1"
                   onClick={() => setKids((kids += 1))}
                 />
               </div>
@@ -149,7 +149,7 @@ const Booking = () => {
             </button>
             <button
               onClick={() => setRoomsSlider(!roomsSlider)}
-              className="flex-grow text-purple-800"
+              className="flex-grow text-primary"
             >
               Continue
             </button>
@@ -159,7 +159,7 @@ const Booking = () => {
 
       <button
         onClick={roomPage}
-        className="bg-purple-800 text-white rounded-lg p-1 mt-1"
+        className="bg-primary text-white rounded-lg p-1 mt-1"
       >
         RESERVAR
       </button>
