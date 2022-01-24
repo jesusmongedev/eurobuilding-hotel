@@ -1,30 +1,30 @@
-import { useRouter } from "next/router";
-import Header from "../Components/Header";
-import { format } from "date-fns";
-import { useEffect, useState } from "react";
-import RoomDetailPage from "../Components/RoomDetailPage";
+import { useRouter } from 'next/router'
+import Header from '../Components/Header'
+import { format } from 'date-fns'
+import { useEffect, useState } from 'react'
+import RoomDetailPage from '../Components/RoomDetailPage'
 
 const Rooms = () => {
-  const router = useRouter();
-  const [roomList, setRoomList] = useState([]);
+  const router = useRouter()
+  const [roomList, setRoomList] = useState([])
 
   //ES6 Destructuring
-  const { adults, kids, startDate, endDate } = router.query;
-  const guests = parseInt(adults) + parseInt(kids);
+  const { adults, kids, startDate, endDate } = router.query
+  const guests = parseInt(adults) + parseInt(kids)
   // Formatted Start and endd Date
-  const formattedStartDate = format(new Date(startDate), "dd/MM/yyyy");
-  const formattedEndDate = format(new Date(endDate), "dd/MM/yyyy");
-  const range = `${formattedStartDate} - ${formattedEndDate}`;
+  const formattedStartDate = format(new Date(startDate), 'dd/MM/yyyy')
+  const formattedEndDate = format(new Date(endDate), 'dd/MM/yyyy')
+  const range = `${formattedStartDate} - ${formattedEndDate}`
 
   // Users data provide in the Home page
   useEffect(() => {
     window
-      .fetch("/api/rooms")
+      .fetch('/api/rooms')
       .then((res) => res.json())
       .then(({ rooms }) => {
-        setRoomList(rooms);
-      });
-  }, []);
+        setRoomList(rooms)
+      })
+  }, [])
 
   // console.log(adults);
   // Data requested with all the Room's information
@@ -32,12 +32,11 @@ const Rooms = () => {
 
   return (
     <div>
-      <Header />
       <main>
-        <section>
+        <section className="mb-[3em]">
           <p className="text-center mt-4 font-semibold text-lg">
-            {" "}
-            {guests} guests - {range}{" "}
+            {' '}
+            {guests} guests - {range}{' '}
           </p>
           <div className="flex flex-col gap-5 m-5">
             {roomList?.map(
@@ -54,10 +53,10 @@ const Rooms = () => {
         </section>
       </main>
     </div>
-  );
-};
+  )
+}
 
-export default Rooms;
+export default Rooms
 
 // export async function getServerSideProps() {
 //   const getRooms = await fetch(

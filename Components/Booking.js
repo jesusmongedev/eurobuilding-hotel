@@ -62,18 +62,17 @@ const Booking = () => {
 
   return (
     <div className="p-5 flex flex-col gap-2">
-      <h2 className="text-xl font-bold"> HAGA SU RESERVACIÓN </h2>
+      <h2 className="text-sm font-semibold"> HAGA SU RESERVACIÓN </h2>
 
       <div className="flex justify-between">
         <span
-          className="flex gap-5 border-2 border-primary rounded-lg px-3"
+          className="euro-button"
           onClick={() => setDatePicker(!datePicker)}
         >
-          Check in <ChevronDownIcon className="h-6 cursor-pointer" />{' '}
+          Check in <ChevronDownIcon className="h-4 cursor-pointer" />
         </span>
-        <span className="flex gap-5 border-2 border-primary rounded-lg px-3">
-          Check out
-          <ChevronDownIcon className="h-6 cursor-pointer" />{' '}
+        <span className="euro-button">
+          Check out <ChevronDownIcon className="h-4 cursor-pointer" />
         </span>
       </div>
 

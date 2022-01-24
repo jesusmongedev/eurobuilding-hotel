@@ -1,5 +1,10 @@
 @tailwind base;
 @tailwind components;
+
+.euro-button {
+  @apply flex items-center gap-6 border-2 border-primary px-4 py-1 rounded-lg text-xs;
+}
+
 @tailwind utilities;
 
 .sliderContainer {
