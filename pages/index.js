@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import AboutHotel from '../Components/AboutHotel'
 import Booking from '../Components/Booking'
+import EuroBuSlider from '../Components/EuroBuSlider'
 import HeroImage from '../Components/HeroImage'
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <HeroImage />
       <Booking />
       <AboutHotel />
+      <EuroBuSlider />
     </>
   )
 }
