@@ -27,7 +27,7 @@ const EuroBuSlider = () => {
   }, [])
 
   return (
-    <div className="relative flex items-center justify-center">
+    <div className="relative flex items-center justify-center mb-8">
       <FaArrowAltCircleLeft
         className="slider-arrow left-[15px]"
         onClick={prevSlide}
@@ -36,14 +36,17 @@ const EuroBuSlider = () => {
         className="slider-arrow right-[15px]"
         onClick={nextSlide}
       />
+      <span className="absolute  top-[-5px] text-center z-10 font-semibold text-white bg-primary w-full max-w-[1000px] p-1 rounded-t-md">
+        Vive la experiencia EuroBuilding
+      </span>
       {sliderImage?.map((slide, index) => {
         return (
           <div
             key={index}
             className={
               index === current
-                ? 'opacity-1 duration-1000 scale-105'
-                : 'opacity-0 duration-1000 ease'
+                ? 'opacity-1 duration-1000 ease-in-out'
+                : 'opacity-0 duration-1000 ease-in-out'
             }
           >
             {index === current && (
@@ -51,10 +54,11 @@ const EuroBuSlider = () => {
               <Image
                 src={slide?.room_image.url}
                 alt={slide?.room_image.alt}
-                width={305}
-                height={240}
-                objectFit="contain"
-                className="rounded-lg"
+                width={1000}
+                height={800}
+                // Test with contain
+                objectFit="cover"
+                className="rounded-md "
               />
             )}
           </div>
