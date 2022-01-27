@@ -2,19 +2,19 @@ import { useEffect, useState } from 'react'
 import { ChevronDownIcon, PlusIcon, MinusIcon } from '@heroicons/react/outline'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-// import { format } from "date-fns";
+import { format } from 'date-fns'
 import { useRouter } from 'next/router'
 import RoomSlider from './RoomSlider'
 
 const Booking = () => {
   const [datePicker, setDatePicker] = useState(false)
-  const [roomsSlider, setRoomsSlider] = useState(false)
-  const [startDate, setStartDate] = useState(new Date())
+  // const [roomsSlider, setRoomsSlider] = useState(false)
+  const [startDate, setStartDate] = useState(null)
   const [endDate, setEndDate] = useState(null)
   const [roomList, setRoomList] = useState([])
 
-  // const formattedStartDate = format(new Date(startDate), "dd/MM/yy");
-  // const formattedEndDate = format(new Date(endDate), "dd/MM/yy");
+  const formattedStartDate = format(new Date(startDate), 'dd/MM/yy')
+  const formattedEndDate = format(new Date(endDate), 'dd/MM/yy')
 
   const [adults, setAdults] = useState(1)
   const [kids, setKids] = useState(0)
@@ -33,11 +33,11 @@ const Booking = () => {
   const decrementKids = () => {
     setKids(kids > 1 ? kids - 1 : (kids = 0))
   }
-  // Cancel Booking close Date Range Picker and Number of Guest inputs
-  const cancelBookinn = () => {
-    setRoomsSlider(false)
-    setDatePicker(false)
-  }
+  // // Cancel Booking close Date Range Picker and Number of Guest inputs
+  // const cancelBookinn = () => {
+  //   setRoomsSlider(false)
+  //   setDatePicker(false)
+  // }
   // roomPage function will open the RoomPage
   const roomPage = () => {
     router.push({
@@ -66,13 +66,21 @@ const Booking = () => {
 
       <div className="flex justify-between">
         <span
-          className="euro-button"
+          className="euro-button flex flex-col"
           onClick={() => setDatePicker(!datePicker)}
         >
-          Check in <ChevronDownIcon className="h-4 cursor-pointer" />
+          <div>
+            Check in{' '}
+            <ChevronDownIcon className="h-4 cursor-pointer inline-block" />
+          </div>
+          {startDate ? <p>{formattedStartDate}</p> : ''}
         </span>
-        <span className="euro-button">
-          Check out <ChevronDownIcon className="h-4 cursor-pointer" />
+        <span className="euro-button flex flex-col">
+          <div>
+            Check out{' '}
+            <ChevronDownIcon className="h-4 cursor-pointer inline-block" />
+          </div>
+          {endDate ? <p>{formattedEndDate}</p> : ''}
         </span>
       </div>
 
@@ -94,14 +102,14 @@ const Booking = () => {
 
           <h2 className="text-xl font-semibold text-center">Huéspedes</h2>
           <div className="flex justify-center border-b border-primary py-2">
-            <div className="flex gap-3">
+            <div className="flex gap-2">
               <div className="flex items-center gap-2">
                 <p>Adultos</p>
                 <MinusIcon
                   className="h-6 cursor-pointer border-2 border-primary rounded-full p-1"
                   onClick={decrementAdults}
                 />
-                <span className="text-gray-500 font-semibold">{adults}</span>
+                <span className="text-gray-500 font-semibold ">{adults}</span>
                 <PlusIcon
                   className="h-6 cursor-pointer border-2 border-primary rounded-full p-1"
                   onClick={() => setAdults((adults += 1))}
@@ -114,7 +122,7 @@ const Booking = () => {
                   className="h-6 cursor-pointer border-2 border-primary rounded-full p-1"
                   onClick={decrementKids}
                 />
-                <span className="font-semibold">{kids}</span>
+                <span className="text-gray-500 font-semibold">{kids}</span>
                 <PlusIcon
                   className="h-6 cursor-pointer border-2 border-primary rounded-full p-1"
                   onClick={() => setKids((kids += 1))}
@@ -122,27 +130,30 @@ const Booking = () => {
               </div>
             </div>
           </div>
+          <h2 className="text-xl font-semibold text-center">
+            Seleccione su habitación
+          </h2>
           <div className="flex sliderContainer gap-8 w-full max-w-[280px] mx-auto my-2 pb-4">
-            {roomsSlider &&
-              roomList?.map(
-                ({
-                  id,
-                  room_title,
-                  room_description,
-                  room_image,
-                  room_price,
-                }) => (
-                  <RoomSlider
-                    key={id}
-                    room_title={room_title}
-                    room_description={room_description}
-                    room_image={room_image}
-                    room_price={room_price}
-                  />
-                )
-              )}
+            {/* {roomsSlider && */}
+            {roomList?.map(
+              ({
+                id,
+                room_title,
+                room_description,
+                room_image,
+                room_price,
+              }) => (
+                <RoomSlider
+                  key={id}
+                  room_title={room_title}
+                  room_description={room_description}
+                  room_image={room_image}
+                  room_price={room_price}
+                />
+              )
+            )}
           </div>
-          <div className="flex">
+          {/* <div className="flex">
             <button className="flex-grow text-gray-500" onClick={cancelBookinn}>
               Cancel
             </button>
@@ -152,7 +163,7 @@ const Booking = () => {
             >
               Continue
             </button>
-          </div>
+          </div> */}
         </>
       )}
 

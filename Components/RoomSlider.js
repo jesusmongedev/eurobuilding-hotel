@@ -35,7 +35,7 @@ const RoomSlider = ({ room_title, room_image, room_price }) => {
         `}</style>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default RoomSlider;
+export default RoomSlider

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa'
+// import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa'
+import { BiLeftArrow, BiRightArrow } from 'react-icons/bi'
 
 const EuroBuSlider = () => {
   const [sliderImage, setSliderImage] = useState([])
@@ -28,14 +29,8 @@ const EuroBuSlider = () => {
 
   return (
     <div className="relative flex items-center justify-center mb-8">
-      <FaArrowAltCircleLeft
-        className="slider-arrow left-[15px]"
-        onClick={prevSlide}
-      />
-      <FaArrowAltCircleRight
-        className="slider-arrow right-[15px]"
-        onClick={nextSlide}
-      />
+      <BiLeftArrow className="slider-arrow left-[15px]" onClick={prevSlide} />
+      <BiRightArrow className="slider-arrow right-[15px]" onClick={nextSlide} />
       <span className="absolute  top-[-5px] text-center z-10 font-semibold text-white bg-primary w-full max-w-[1000px] p-1 rounded-t-md">
         Vive la experiencia EuroBuilding
       </span>

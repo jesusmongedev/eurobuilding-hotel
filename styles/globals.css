@@ -2,7 +2,7 @@
 @tailwind components;
 
 .euro-button {
-  @apply flex items-center gap-6 border-2 border-primary px-4 py-1 rounded-lg text-xs;
+  @apply flex items-center  border-2 border-primary px-4 py-1 rounded-lg text-xs;
 }
 .slider-arrow {
   @apply absolute top-[45%] text-xl text-primary z-10 cursor-pointer select-none;
