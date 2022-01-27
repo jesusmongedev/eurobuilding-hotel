@@ -15,19 +15,18 @@ const EuroBuSlider = () => {
   }, [])
 
   return (
-    <div className="text-center">
-      EuroBuilding Slider
-      {/* {sliderImage?.map((slide, index) => {
+    <div className="relative h-[300px] flex items-center justify-center">
+      {sliderImage?.map((slide, index) => {
         return (
           <Image
             key={index}
             src={slide?.room_image.url}
-            layout="fill"
-            objectFit="contain"
+            width={600}
+            height={400}
             alt={slide?.room_image.alt}
           />
         )
-      })} */}
+      })}
     </div>
   )
 }
