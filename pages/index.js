@@ -3,6 +3,7 @@ import AboutHotel from '../Components/AboutHotel'
 import Booking from '../Components/Booking'
 import EuroBuSlider from '../Components/EuroBuSlider'
 import HeroImage from '../Components/HeroImage'
+import RoomsSection from '../Components/RoomsSection'
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Booking />
       <AboutHotel />
       <EuroBuSlider />
+      <RoomsSection />
     </>
   )
 }

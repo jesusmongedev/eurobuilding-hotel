@@ -31,7 +31,7 @@ const EuroBuSlider = () => {
     <div className="relative flex items-center justify-center mb-8">
       <BiLeftArrow className="slider-arrow left-[15px]" onClick={prevSlide} />
       <BiRightArrow className="slider-arrow right-[15px]" onClick={nextSlide} />
-      <span className="absolute  top-[-5px] text-center z-10 font-semibold text-white bg-primary w-full max-w-[1000px] p-1 rounded-t-md">
+      <span className="absolute  top-[-5px] text-center z-10 font-semibold text-white bg-primary w-full max-w-[1000px] p-1 ">
         Vive la experiencia EuroBuilding
       </span>
       {sliderImage?.map((slide, index) => {
@@ -45,7 +45,6 @@ const EuroBuSlider = () => {
             }
           >
             {index === current && (
-              // eslint-disable-next-line @next/next/no-img-element
               <Image
                 src={slide?.room_image.url}
                 alt={slide?.room_image.alt}
@@ -53,7 +52,6 @@ const EuroBuSlider = () => {
                 height={800}
                 // Test with contain
                 objectFit="cover"
-                className="rounded-md "
               />
             )}
           </div>

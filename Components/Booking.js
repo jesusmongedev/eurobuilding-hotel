@@ -102,8 +102,8 @@ const Booking = () => {
 
           <h2 className="text-xl font-semibold text-center">Huéspedes</h2>
           <div className="flex justify-center border-b border-primary py-2">
-            <div className="flex gap-2">
-              <div className="flex items-center gap-2">
+            <div className="flex gap-3">
+              <div className="flex items-center gap-2 text-sm">
                 <p>Adultos</p>
                 <MinusIcon
                   className="h-6 cursor-pointer border-2 border-primary rounded-full p-1"
@@ -116,7 +116,7 @@ const Booking = () => {
                 />
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 text-sm">
                 <p>Niños</p>
                 <MinusIcon
                   className="h-6 cursor-pointer border-2 border-primary rounded-full p-1"
@@ -133,7 +133,7 @@ const Booking = () => {
           <h2 className="text-xl font-semibold text-center">
             Seleccione su habitación
           </h2>
-          <div className="flex sliderContainer gap-8 w-full max-w-[280px] mx-auto my-2 pb-4">
+          <div className="flex sliderContainer gap-8 w-full max-w-[280px] mx-auto pb-3">
             {/* {roomsSlider && */}
             {roomList?.map(
               ({
@@ -169,7 +169,7 @@ const Booking = () => {
 
       <button
         onClick={roomPage}
-        className="bg-primary text-white rounded-lg p-1 mt-1"
+        className="bg-primary text-white rounded-lg p-1"
       >
         RESERVAR
       </button>

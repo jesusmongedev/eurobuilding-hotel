@@ -18,11 +18,26 @@ const Header = () => {
             alt="EuroBuilding logo"
           />
         </div>
-        <div className="flex items-center justify-center gap-1">
-          {/* <input className='bg-transparent border-2 w-20 text-sm px-1 text-center rounded-full' type="text" value={`Check in`}  />
-            <input className='bg-transparent border-2 w-20 text-sm px-1 text-center rounded-full' type="text" value={`Check out`}  />
-            <input className='bg-transparent border-2 w-20 text-sm px-1 text-center rounded-full' type="text" value={`Guests`}  /> */}
+        <div className="flex items-center justify-center font-bold">
+          <h1>EUROBUILDING</h1>
         </div>
+        {/* <div className="flex items-center justify-center gap-1">
+          <input
+            className="bg-transparent border-2 w-20 text-sm px-1 text-center rounded-full"
+            type="text"
+            value={`Check in`}
+          />
+          <input
+            className="bg-transparent border-2 w-20 text-sm px-1 text-center rounded-full"
+            type="text"
+            value={`Check out`}
+          />
+          <input
+            className="bg-transparent border-2 w-20 text-sm px-1 text-center rounded-full"
+            type="text"
+            value={`Guests`}
+          />
+        </div> */}
         <div className="flex items-center justify-end">
           <div className="flex items-center border-2 p-2 rounded-full">
             <MenuIcon className="h-5 cursor-pointer" />
