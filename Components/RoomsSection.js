@@ -1,17 +1,14 @@
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import { BiLeftArrow, BiRightArrow } from 'react-icons/bi'
 
 const RoomsSection = () => {
   const [rooms, setRooms] = useState([])
-  const [current, setCurrent] = useState(0)
 
   useEffect(() => {
     window
       .fetch('/api/rooms')
       .then((res) => res.json())
       .then(({ rooms }) => {
-        console.log(rooms)
         setRooms(rooms)
       })
   }, [])
@@ -22,7 +19,6 @@ const RoomsSection = () => {
       </h2>
       <section className="flex sliderContainer gap-8 w-full max-w-[288px]  p-3">
         {rooms?.map((euro, i) => {
-          console.log(euro)
           return (
             <div key={i} className="min-w-[288px] max-w-[328px] sliderCards ">
               <Image

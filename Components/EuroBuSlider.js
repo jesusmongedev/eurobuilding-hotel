@@ -15,14 +15,11 @@ const EuroBuSlider = () => {
     setCurrent(current === 0 ? sliderImageLength - 1 : current - 1)
   }
 
-  console.log(current)
-
   useEffect(() => {
     window
       .fetch('/api/rooms')
       .then((res) => res.json())
       .then(({ rooms }) => {
-        console.log(rooms)
         setSliderImage(rooms)
       })
   }, [])
@@ -46,8 +43,8 @@ const EuroBuSlider = () => {
           >
             {index === current && (
               <Image
-                src={slide?.room_image.url}
-                alt={slide?.room_image.alt}
+                src={slide?.euro_slider.url}
+                alt={slide?.euro_slider.alt}
                 width={1000}
                 height={800}
                 // Test with contain
