@@ -3,6 +3,7 @@ import Header from '../Components/Header'
 import { format } from 'date-fns'
 import { useEffect, useState } from 'react'
 import RoomDetailPage from '../Components/RoomDetailPage'
+import RoomsSection from '../Components/RoomsSection'
 
 const Rooms = () => {
   const router = useRouter()
@@ -33,12 +34,13 @@ const Rooms = () => {
   return (
     <div>
       <main>
-        <section className="mb-[3em]">
-          <p className="text-center mt-4 font-semibold text-lg">
+        <section>
+          <p className="text-center my-4 font-semibold text-sm">
             {' '}
             {guests} guests - {range}{' '}
           </p>
-          <div className="flex flex-col gap-5 m-5">
+          <RoomsSection />
+          {/* <div className="flex flex-col gap-5 m-5">
             {roomList?.map(
               ({ id, room_title, room_description, room_image }) => (
                 <RoomDetailPage
@@ -49,7 +51,7 @@ const Rooms = () => {
                 />
               )
             )}
-          </div>
+          </div> */}
         </section>
       </main>
     </div>

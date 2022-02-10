@@ -7,7 +7,9 @@
 .slider-arrow {
   @apply absolute top-[45%] text-xl text-primary z-10 cursor-pointer select-none;
 }
-
+.rounded-button {
+  @apply rounded-full border border-gray-400 w-3 h-3;
+}
 @tailwind utilities;
 
 .sliderContainer {
