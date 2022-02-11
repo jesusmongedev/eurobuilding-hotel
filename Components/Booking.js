@@ -85,7 +85,7 @@ const Booking = () => {
       </div>
 
       {datePicker && (
-        <>
+        <div className="">
           <div className="text-center">
             <DatePicker
               selected={startDate}
@@ -95,34 +95,36 @@ const Booking = () => {
               minDate={new Date()}
               selectsRange
               inline
-              // isClearable={true}
-              // placeholderText="Seleccione la fecha"
             />
           </div>
 
           <h2 className="text-xl font-semibold text-center">Huéspedes</h2>
           <div className="flex justify-center border-b border-primary py-2">
-            <div className="flex gap-3">
-              <div className="flex items-center gap-2 text-sm">
+            <div className="flex flex-1 justify-between ">
+              <div className="flex items-center text-sm space-x-2">
                 <p>Adultos</p>
                 <MinusIcon
                   className="h-6 cursor-pointer border-2 border-primary rounded-full p-1"
                   onClick={decrementAdults}
                 />
-                <span className="text-gray-500 font-semibold ">{adults}</span>
+                <span className="text-gray-500 text-center font-semibold w-4">
+                  {adults}
+                </span>
                 <PlusIcon
                   className="h-6 cursor-pointer border-2 border-primary rounded-full p-1"
                   onClick={() => setAdults((adults += 1))}
                 />
               </div>
 
-              <div className="flex items-center gap-2 text-sm">
+              <div className="flex items-center space-x-2 text-sm">
                 <p>Niños</p>
                 <MinusIcon
                   className="h-6 cursor-pointer border-2 border-primary rounded-full p-1"
                   onClick={decrementKids}
                 />
-                <span className="text-gray-500 font-semibold">{kids}</span>
+                <span className="text-gray-500 text-center font-semibold w-3">
+                  {kids}
+                </span>
                 <PlusIcon
                   className="h-6 cursor-pointer border-2 border-primary rounded-full p-1"
                   onClick={() => setKids((kids += 1))}
@@ -130,7 +132,7 @@ const Booking = () => {
               </div>
             </div>
           </div>
-          <h2 className="text-xl font-semibold text-center">
+          <h2 className="text-xl font-semibold text-center my-2">
             Seleccione su habitación
           </h2>
           <div className="flex sliderContainer gap-8 w-full max-w-[280px] mx-auto pb-3">
@@ -164,9 +166,8 @@ const Booking = () => {
               Continue
             </button>
           </div> */}
-        </>
+        </div>
       )}
-
       <button
         onClick={roomPage}
         className="bg-primary text-white rounded-lg p-1"

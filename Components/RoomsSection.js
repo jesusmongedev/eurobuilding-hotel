@@ -31,31 +31,31 @@ const RoomsSection = () => {
             onClick={() => {
               setCurrent(0)
             }}
-            className="rounded-button"
+            className={`rounded-button ${current === 0 ? 'bg-gray-500' : ''}`}
           ></button>
           <button
             onClick={() => {
               setCurrent(1)
             }}
-            className="rounded-button"
+            className={`rounded-button ${current === 1 ? 'bg-gray-500' : ''}`}
           ></button>
           <button
             onClick={() => {
               setCurrent(2)
             }}
-            className="rounded-button"
+            className={`rounded-button ${current === 2 ? 'bg-gray-500' : ''}`}
           ></button>
           <button
             onClick={() => {
               setCurrent(3)
             }}
-            className="rounded-button"
+            className={`rounded-button ${current === 3 ? 'bg-gray-500' : ''}`}
           ></button>
           <button
             onClick={() => {
               setCurrent(4)
             }}
-            className="rounded-button"
+            className={`rounded-button ${current === 4 ? 'bg-gray-500' : ''}`}
           ></button>
         </div>
         <h3 className="text-sm font-semibold py-1">{rooms?.room_title}</h3>

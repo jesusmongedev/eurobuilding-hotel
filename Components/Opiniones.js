@@ -48,19 +48,19 @@ const Opiniones = () => {
           onClick={() => {
             setCurrent(0)
           }}
-          className="rounded-button"
+          className={`rounded-button ${current === 0 ? 'bg-gray-500' : ''}`}
         ></button>
         <button
           onClick={() => {
             setCurrent(1)
           }}
-          className="rounded-button"
+          className={`rounded-button ${current === 1 ? 'bg-gray-500' : ''}`}
         ></button>
         <button
           onClick={() => {
             setCurrent(2)
           }}
-          className="rounded-button"
+          className={`rounded-button ${current === 2 ? 'bg-gray-500' : ''}`}
         ></button>
       </div>
     </div>
