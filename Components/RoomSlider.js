@@ -17,10 +17,10 @@ const RoomSlider = ({ room_title, room_image, room_price }) => {
   }
 
   return (
-    <div className="min-w-[280px] max-w-[328px] sliderCards mt-6">
-      <div className="relative flex flex-col background min-h-[300px] py-3  bg-no-repeat bg-cover rounded-md text-white">
-        <div className="absolute top-[-1.25em] bg-primary rounded-t-md w-full">
-          <h2 className="text-md text-center uppercase text-white">
+    <div className="max-w-[328px] min-w-[280px] sliderCards mt-6">
+      <div className="relative flex flex-col background min-h-[328px] py-3  bg-no-repeat bg-contain rounded-md text-white">
+        <div className="absolute top-[-1.25em] bg-primary rounded-t-md w-full p-1">
+          <h2 className="text-xs text-center uppercase text-white">
             {room_title}
           </h2>
         </div>
@@ -42,8 +42,8 @@ const RoomSlider = ({ room_title, room_image, room_price }) => {
           .background {
             background-image: linear-gradient(
                 180deg,
-                rgba(196, 196, 196, 0) 30%,
-                rgba(0, 0, 60, 0.72) 70%
+                rgba(0, 0, 60, 0.35),
+                rgba(0, 0, 60, 0.6)
               ),
               url(${room_image.url});
           }
@@ -54,3 +54,12 @@ const RoomSlider = ({ room_title, room_image, room_price }) => {
 }
 
 export default RoomSlider
+
+// .background {
+//   background-image: linear-gradient(
+//       180deg,
+//       rgba(196, 196, 196, 0) 0%,
+//       rgba(0, 0, 0, 1) 100%
+//     ),
+//     url(${room_image.url});
+// }

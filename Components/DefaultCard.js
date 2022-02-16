@@ -14,7 +14,9 @@ const DefaultCard = ({ room_price, handleDefaultCard }) => {
         </div>
 
         <div className="flex flex-col grow">
-          <p className="self-end pb-2 font-bold">${room_price}</p>
+          <p className="self-end pb-2 text-[15px] font-bold">
+            ${room_price},00
+          </p>
           <button onClick={handleDefaultCard} className="border rounded-md">
             Ver más
           </button>

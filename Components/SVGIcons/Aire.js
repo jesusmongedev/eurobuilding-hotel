@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Aire = ({ size = '24px' }) => (
   <svg
     width={size}

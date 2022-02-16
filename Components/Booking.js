@@ -132,11 +132,10 @@ const Booking = () => {
               </div>
             </div>
           </div>
-          <h2 className="text-xl font-semibold text-center my-2">
+          <h2 className="text-xl font-semibold text-center my-2 ">
             Seleccione su habitación
           </h2>
-          <div className="flex sliderContainer gap-8 w-full max-w-[280px] mx-auto pb-3">
-            {/* {roomsSlider && */}
+          <div className="flex sliderContainer gap-8 max-w-[328px] mx-auto pb-3">
             {roomList?.map(
               ({
                 id,
