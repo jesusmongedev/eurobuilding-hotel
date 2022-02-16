@@ -1,0 +1,21 @@
+{
+    "data":{
+        "checkin": ,
+        "checkuot": ,
+        "adult": ,
+        "kids": ,
+        "room":,
+    }
+}
+{
+    "data":{
+        "name": "First Class",
+        "number":0,
+        "price" : 200.69,
+        "image" : "/imgs/first-class.jpg",
+        "description": "The First Class",
+        "abailable":
+
+    }
+
+}
