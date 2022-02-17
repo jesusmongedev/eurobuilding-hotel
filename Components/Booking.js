@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { ChevronDownIcon, PlusIcon, MinusIcon } from '@heroicons/react/outline'
+import { ChevronDownIcon } from '@heroicons/react/outline'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { format } from 'date-fns'
 import { useRouter } from 'next/router'
 import RoomSlider from './RoomSlider'
+import NumberOfGuests from './NumberOfGuests'
 
 const Booking = () => {
   const [datePicker, setDatePicker] = useState(false)
@@ -61,31 +62,49 @@ const Booking = () => {
   }, [])
 
   return (
-    <div className="p-5 flex flex-col gap-2">
-      <h2 className="text-sm font-semibold"> HAGA SU RESERVACIÓN </h2>
+    <div className="max-w-[320px] mx-auto">
+      <div className="p-5 flex flex-col gap-2">
+        <h2 className="text-sm font-semibold"> HAGA SU RESERVACIÓN </h2>
 
-      <div className="flex justify-between">
-        <span
-          className="euro-button flex flex-col"
-          onClick={() => setDatePicker(!datePicker)}
-        >
-          <div>
-            Check in{' '}
-            <ChevronDownIcon className="h-4 cursor-pointer inline-block" />
-          </div>
-          {startDate ? <p>{formattedStartDate}</p> : ''}
-        </span>
-        <span className="euro-button flex flex-col">
-          <div>
-            Check out{' '}
-            <ChevronDownIcon className="h-4 cursor-pointer inline-block" />
-          </div>
-          {endDate ? <p>{formattedEndDate}</p> : ''}
-        </span>
+        <div className="flex justify-between">
+          <span
+            className="euro-button flex flex-col"
+            onClick={() => setDatePicker(!datePicker)}
+          >
+            <div>
+              Check in{' '}
+              <ChevronDownIcon className="h-4 cursor-pointer inline-block" />
+            </div>
+            {startDate ? <p>{formattedStartDate}</p> : ''}
+          </span>
+          <span className="euro-button flex flex-col">
+            <div>
+              Check out{' '}
+              <ChevronDownIcon className="h-4 cursor-pointer inline-block" />
+            </div>
+            {endDate ? <p>{formattedEndDate}</p> : ''}
+          </span>
+        </div>
       </div>
 
       {datePicker && (
-        <div className="">
+        <div className="flex flex-col gap-2">
+          {/* <div className="px-5 flex justify-between mb-4">
+            <span className="euro-button flex flex-col">
+              <div>
+                Check in{' '}
+                <ChevronDownIcon className="h-4 cursor-pointer inline-block" />
+              </div>
+              {startDate ? <p>{formattedStartDate}</p> : ''}
+            </span>
+            <span className="euro-button flex flex-col">
+              <div>
+                Check out{' '}
+                <ChevronDownIcon className="h-4 cursor-pointer inline-block" />
+              </div>
+              {endDate ? <p>{formattedEndDate}</p> : ''}
+            </span>
+          </div> */}
           <div className="text-center">
             <DatePicker
               selected={startDate}
@@ -99,43 +118,19 @@ const Booking = () => {
           </div>
 
           <h2 className="text-xl font-semibold text-center">Huéspedes</h2>
-          <div className="flex justify-center border-b border-primary py-2">
-            <div className="flex flex-1 justify-between ">
-              <div className="flex items-center text-sm space-x-2">
-                <p>Adultos</p>
-                <MinusIcon
-                  className="h-6 cursor-pointer border-2 border-primary rounded-full p-1"
-                  onClick={decrementAdults}
-                />
-                <span className="text-gray-500 text-center font-semibold w-4">
-                  {adults}
-                </span>
-                <PlusIcon
-                  className="h-6 cursor-pointer border-2 border-primary rounded-full p-1"
-                  onClick={() => setAdults((adults += 1))}
-                />
-              </div>
+          <NumberOfGuests
+            kids={kids}
+            adults={adults}
+            decrementKids={decrementKids}
+            decrementAdults={decrementAdults}
+            setAdults={setAdults}
+            setKids={setKids}
+          />
 
-              <div className="flex items-center space-x-2 text-sm">
-                <p>Niños</p>
-                <MinusIcon
-                  className="h-6 cursor-pointer border-2 border-primary rounded-full p-1"
-                  onClick={decrementKids}
-                />
-                <span className="text-gray-500 text-center font-semibold w-3">
-                  {kids}
-                </span>
-                <PlusIcon
-                  className="h-6 cursor-pointer border-2 border-primary rounded-full p-1"
-                  onClick={() => setKids((kids += 1))}
-                />
-              </div>
-            </div>
-          </div>
           <h2 className="text-xl font-semibold text-center my-2 ">
             Seleccione su habitación
           </h2>
-          <div className="flex sliderContainer gap-8 max-w-[328px] mx-auto pb-3">
+          <div className="flex sliderContainer max-w-[320px] gap-8 mx-auto pb-3">
             {roomList?.map(
               ({
                 id,
@@ -165,14 +160,14 @@ const Booking = () => {
               Continue
             </button>
           </div> */}
+          <button
+            onClick={roomPage}
+            className="bg-primary text-white rounded-lg p-1 mb-6"
+          >
+            RESERVAR
+          </button>
         </div>
       )}
-      <button
-        onClick={roomPage}
-        className="bg-primary text-white rounded-lg p-1"
-      >
-        RESERVAR
-      </button>
     </div>
   )
 }
