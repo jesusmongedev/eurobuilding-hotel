@@ -75,36 +75,24 @@ const Booking = () => {
               Check in{' '}
               <ChevronDownIcon className="h-4 cursor-pointer inline-block" />
             </div>
-            {startDate ? <p>{formattedStartDate}</p> : ''}
+            {startDate ? (
+              <p className="text-primary">{formattedStartDate}</p>
+            ) : (
+              ''
+            )}
           </span>
           <span className="euro-button flex flex-col">
             <div>
               Check out{' '}
               <ChevronDownIcon className="h-4 cursor-pointer inline-block" />
             </div>
-            {endDate ? <p>{formattedEndDate}</p> : ''}
+            {endDate ? <p className="text-primary">{formattedEndDate}</p> : ''}
           </span>
         </div>
       </div>
 
       {datePicker && (
         <div className="flex flex-col gap-2">
-          {/* <div className="px-5 flex justify-between mb-4">
-            <span className="euro-button flex flex-col">
-              <div>
-                Check in{' '}
-                <ChevronDownIcon className="h-4 cursor-pointer inline-block" />
-              </div>
-              {startDate ? <p>{formattedStartDate}</p> : ''}
-            </span>
-            <span className="euro-button flex flex-col">
-              <div>
-                Check out{' '}
-                <ChevronDownIcon className="h-4 cursor-pointer inline-block" />
-              </div>
-              {endDate ? <p>{formattedEndDate}</p> : ''}
-            </span>
-          </div> */}
           <div className="text-center">
             <DatePicker
               selected={startDate}

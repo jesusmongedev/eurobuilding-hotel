@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-// import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa'
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi'
 
 const EuroBuSlider = () => {
@@ -25,10 +24,10 @@ const EuroBuSlider = () => {
   }, [])
 
   return (
-    <div className="relative flex items-center justify-center mb-8">
+    <div className="relative flex items-center justify-center mb-8 mt-14">
       <BiLeftArrow className="slider-arrow left-[15px]" onClick={prevSlide} />
       <BiRightArrow className="slider-arrow right-[15px]" onClick={nextSlide} />
-      <span className="absolute  top-[-5px] text-center z-10 font-semibold text-white bg-primary w-full max-w-[1000px] p-1 ">
+      <span className="absolute  top-[-32px] text-center z-10 font-semibold text-white bg-primary w-full max-w-[1000px] p-1 ">
         Vive la experiencia EuroBuilding
       </span>
       {sliderImage?.map((slide, index) => {
@@ -45,10 +44,10 @@ const EuroBuSlider = () => {
               <Image
                 src={slide?.euro_slider.url}
                 alt={slide?.euro_slider.alt}
-                width={1000}
+                width={800}
                 height={800}
                 // Test with contain
-                objectFit="cover"
+                objectFit="contain"
               />
             )}
           </div>
