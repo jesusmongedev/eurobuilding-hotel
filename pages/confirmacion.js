@@ -4,13 +4,14 @@ import { format } from 'date-fns'
 import { useEffect, useState } from 'react'
 import RoomDetailPage from '../Components/RoomDetailPage'
 import RoomsSection from '../Components/RoomsSection'
+import Head from 'next/head'
 
 const Rooms = () => {
   const router = useRouter()
   const [roomList, setRoomList] = useState([])
 
   //ES6 Destructuring
-  const { adults, kids, startDate, endDate } = router.query
+  const { adults, kids, startDate, endDate, roomTitle } = router.query
   const guests = parseInt(adults) + parseInt(kids)
   // Formatted Start and endd Date
   const formattedStartDate = format(new Date(startDate), 'dd/MM/yyyy')
@@ -32,7 +33,10 @@ const Rooms = () => {
   // console.log(roomList);
 
   return (
-    <div>
+    <>
+      <Head>
+        <title>Confirmación</title>
+      </Head>
       <main>
         <section className="my-4 flex flex-col gap-6 w-[250px] mx-auto">
           <div className="flex justify-between">
@@ -44,29 +48,35 @@ const Rooms = () => {
             <div className="flex justify-around">
               <div className="text-center">
                 <p>Adultos</p>
-                {guests}
+                {adults}
               </div>
               <div className="text-center">
                 <p>Niños</p>
-                {guests}
+                {kids}
               </div>
             </div>
           </div>
           <div className="text-center space-y-2">
-            <h3 className="text-xl text-primary font-bold">Room Name</h3>
+            <h3 className="text-xl text-primary font-bold">{roomTitle}</h3>
             <div>⭐⭐⭐⭐⭐</div>
             <div className="flex flex-col gap-1">
-              <button className="bg-secondary text-white py-1 rounded-[4px]">
+              <button
+                className="button-gradient text-white py-1 rounded-[4px]"
+                onClick={() => router.push('/detalle')}
+              >
                 Continuar
               </button>
-              <button className="bg-secondary text-white py-1 rounded-[4px]">
+              <button
+                className="bg-primary text-white py-1 rounded-[4px]"
+                onClick={() => router.push('/')}
+              >
                 Editar
               </button>
             </div>
           </div>
         </section>
       </main>
-    </div>
+    </>
   )
 }
 

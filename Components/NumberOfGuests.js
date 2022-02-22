@@ -9,7 +9,7 @@ const NumberOfGuests = ({
   setKids,
 }) => {
   return (
-    <div className="flex justify-center border-b border-primary py-2 mx-5">
+    <div className="flex justify-center border-b border-primary py-2">
       <div className="flex flex-1 justify-between ">
         <div className="flex items-center text-sm space-x-2 ">
           <p>Adultos</p>

@@ -13,6 +13,8 @@ const Booking = () => {
   const [startDate, setStartDate] = useState(null)
   const [endDate, setEndDate] = useState(null)
   const [roomList, setRoomList] = useState([])
+  const [roomTitle, setRoomTitle] = useState('')
+  console.log(roomTitle)
 
   const formattedStartDate = format(new Date(startDate), 'dd/MM/yy')
   const formattedEndDate = format(new Date(endDate), 'dd/MM/yy')
@@ -41,15 +43,20 @@ const Booking = () => {
   // }
   // roomPage function will open the RoomPage
   const roomPage = () => {
-    router.push({
-      pathname: '/rooms',
-      query: {
-        adults,
-        kids,
-        startDate: startDate.toISOString(),
-        endDate: endDate.toISOString(),
-      },
-    })
+    if ((kids, adults, startDate, endDate)) {
+      router.push({
+        pathname: '/confirmacion',
+        query: {
+          adults,
+          kids,
+          startDate: startDate.toISOString(),
+          endDate: endDate.toISOString(),
+          roomTitle,
+        },
+      })
+    } else {
+      setDatePicker(!datePicker)
+    }
   }
   // Users data provide in the Home page
   useEffect(() => {
@@ -62,8 +69,8 @@ const Booking = () => {
   }, [])
 
   return (
-    <div className="max-w-[320px] mx-auto">
-      <div className="p-5 flex flex-col gap-2">
+    <div className="px-5 max-w-[320px] mx-auto">
+      <div className="flex flex-col gap-2 py-5">
         <h2 className="text-sm font-semibold"> HAGA SU RESERVACIÓN </h2>
 
         <div className="flex justify-between">
@@ -81,7 +88,10 @@ const Booking = () => {
               ''
             )}
           </span>
-          <span className="euro-button flex flex-col">
+          <span
+            className="euro-button flex flex-col"
+            onClick={() => setDatePicker(!datePicker)}
+          >
             <div>
               Check out{' '}
               <ChevronDownIcon className="h-4 cursor-pointer inline-block" />
@@ -118,7 +128,7 @@ const Booking = () => {
           <h2 className="text-xl font-semibold text-center my-2 ">
             Seleccione su habitación
           </h2>
-          <div className="flex sliderContainer max-w-[320px] gap-8 mx-auto pb-3">
+          <div className="flex sliderContainer w-[280px] gap-8 mx-auto pb-3">
             {roomList?.map(
               ({
                 id,
@@ -133,6 +143,7 @@ const Booking = () => {
                   room_description={room_description}
                   room_image={room_image}
                   room_price={room_price}
+                  setRoomTitle={setRoomTitle}
                 />
               )
             )}
@@ -148,14 +159,16 @@ const Booking = () => {
               Continue
             </button>
           </div> */}
-          <button
-            onClick={roomPage}
-            className="bg-primary text-white rounded-lg p-1 mb-6"
-          >
-            RESERVAR
-          </button>
         </div>
       )}
+      <div className="px-5">
+        <button
+          onClick={roomPage}
+          className="bg-primary text-white rounded-lg py-1 mb-6 w-full"
+        >
+          RESERVAR
+        </button>
+      </div>
     </div>
   )
 }

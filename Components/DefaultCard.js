@@ -1,6 +1,11 @@
 import { Aire, Cama, Piscina } from './SVGIcons'
 
-const DefaultCard = ({ room_price, handleDefaultCard }) => {
+const DefaultCard = ({
+  room_price,
+  room_title,
+  handleDefaultCard,
+  handleRoomName,
+}) => {
   return (
     <div className="flex flex-col mt-auto space-y-2 px-2 text-sm">
       <div className="flex justify-between gap-9">
@@ -22,7 +27,12 @@ const DefaultCard = ({ room_price, handleDefaultCard }) => {
           </button>
         </div>
       </div>
-      <button className="border rounded-md font-semibold">Escoger</button>
+      <button
+        className="border rounded-md font-semibold"
+        onClick={() => handleRoomName(room_title)}
+      >
+        Escoger
+      </button>
     </div>
   )
 }
