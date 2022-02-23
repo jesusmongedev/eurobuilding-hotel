@@ -83,7 +83,7 @@ const Booking = () => {
               <ChevronDownIcon className="h-4 cursor-pointer inline-block" />
             </div>
             {startDate ? (
-              <p className="text-primary">{formattedStartDate}</p>
+              <p className="text-primary font-semibold">{formattedStartDate}</p>
             ) : (
               ''
             )}
@@ -96,7 +96,11 @@ const Booking = () => {
               Check out{' '}
               <ChevronDownIcon className="h-4 cursor-pointer inline-block" />
             </div>
-            {endDate ? <p className="text-primary">{formattedEndDate}</p> : ''}
+            {endDate ? (
+              <p className="text-primary font-semibold">{formattedEndDate}</p>
+            ) : (
+              ''
+            )}
           </span>
         </div>
       </div>

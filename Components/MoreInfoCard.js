@@ -1,8 +1,13 @@
 import { Piscina, Aire, Wifi, Tv } from './SVGIcons'
 
-const MoreInfoCard = ({ room_price, handleMoreInfoCard }) => {
+const MoreInfoCard = ({
+  room_title,
+  room_price,
+  handleMoreInfoCard,
+  handleRoomName,
+}) => {
   return (
-    <div className="flex flex-col px-2 text-sm gap-[0.77rem] mt-1">
+    <div className="flex flex-col px-2 text-sm gap-[1.273rem] mt-1">
       <div className="flex flex-1 items-center justify-between">
         <h3 className="font-bold">Características</h3>
         <button onClick={handleMoreInfoCard} className="px-6 border rounded-md">
@@ -38,15 +43,20 @@ const MoreInfoCard = ({ room_price, handleMoreInfoCard }) => {
           <Tv /> TV
         </div>
       </div>
-      <div className="flex justify-between items-center">
+      {/* <div className="flex justify-between items-center">
         <p>Cantidad</p>
         <div className="flex gap-4 items-center">
           <div className="bg-minusButton w-4 h-4 bg-cover bg-no-repeat"></div>
           <span className="text-xs">0</span>{' '}
           <div className="bg-plusButton w-4 h-4 bg-cover bg-no-repeat"></div>
         </div>
-      </div>
-      <button className="border rounded-md font-semibold">Escoger</button>
+      </div> */}
+      <button
+        className="border rounded-md font-semibold"
+        onClick={() => handleRoomName(room_title)}
+      >
+        Escoger
+      </button>
     </div>
   )
 }

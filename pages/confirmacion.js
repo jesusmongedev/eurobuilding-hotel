@@ -1,14 +1,12 @@
 import { useRouter } from 'next/router'
-import Header from '../Components/Header'
 import { format } from 'date-fns'
 import { useEffect, useState } from 'react'
-import RoomDetailPage from '../Components/RoomDetailPage'
-import RoomsSection from '../Components/RoomsSection'
 import Head from 'next/head'
 
 const Rooms = () => {
   const router = useRouter()
   const [roomList, setRoomList] = useState([])
+  const [confirmationClicked, setConfirmationClicked] = useState(false)
 
   //ES6 Destructuring
   const { adults, kids, startDate, endDate, roomTitle } = router.query
@@ -28,17 +26,13 @@ const Rooms = () => {
       })
   }, [])
 
-  // console.log(adults);
-  // Data requested with all the Room's information
-  // console.log(roomList);
-
   return (
     <>
       <Head>
         <title>Confirmación</title>
       </Head>
       <main>
-        <section className="my-4 flex flex-col gap-6 w-[250px] mx-auto">
+        <section className="my-8 flex flex-col gap-6 w-[250px] mx-auto">
           <div className="flex justify-between">
             <p className="font-semibold text-sm ">{formattedStartDate}</p>
             <p className="font-semibold text-sm ">{formattedEndDate}</p>
@@ -57,21 +51,35 @@ const Rooms = () => {
             </div>
           </div>
           <div className="text-center space-y-2">
-            <h3 className="text-xl text-primary font-bold">{roomTitle}</h3>
+            <h3 className="text-xl text-primary font-bold">
+              {confirmationClicked ? 'Felicitaciones' : roomTitle}
+            </h3>
             <div>⭐⭐⭐⭐⭐</div>
             <div className="flex flex-col gap-1">
-              <button
-                className="button-gradient text-white py-1 rounded-[4px]"
-                onClick={() => router.push('/detalle')}
-              >
-                Continuar
-              </button>
-              <button
-                className="bg-primary text-white py-1 rounded-[4px]"
-                onClick={() => router.push('/')}
-              >
-                Editar
-              </button>
+              {!confirmationClicked && (
+                <>
+                  <button
+                    className="button-gradient text-white py-1 rounded-[4px]"
+                    onClick={() => setConfirmationClicked(!confirmationClicked)}
+                  >
+                    Continuar
+                  </button>
+                  <button
+                    className="bg-primary text-white py-1 rounded-[4px]"
+                    onClick={() => router.push('/')}
+                  >
+                    Editar
+                  </button>
+                </>
+              )}
+              {confirmationClicked && (
+                <button
+                  className="button-gradient text-white py-1 rounded-[4px] mt-2"
+                  onClick={() => setConfirmationClicked(!confirmationClicked)}
+                >
+                  RESERVADA
+                </button>
+              )}
             </div>
           </div>
         </section>
