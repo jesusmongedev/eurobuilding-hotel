@@ -12,7 +12,6 @@ const Booking = ({ rooms }) => {
   const [startDate, setStartDate] = useState(null)
   const [endDate, setEndDate] = useState(null)
   const [roomTitle, setRoomTitle] = useState('')
-  console.log(roomTitle)
 
   const formattedStartDate = format(new Date(startDate), 'dd/MM/yy')
   const formattedEndDate = format(new Date(endDate), 'dd/MM/yy')
