@@ -1,26 +1,17 @@
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
-const RoomsSection = () => {
-  const [rooms, setRooms] = useState([])
+const RoomsSection = ({ rooms }) => {
   const [current, setCurrent] = useState(0)
 
-  useEffect(() => {
-    window
-      .fetch('/api/rooms')
-      .then((res) => res.json())
-      .then(({ rooms }) => {
-        setRooms(rooms[current])
-      })
-  }, [current])
   return (
     <section className="px-4">
       <h2 className="text-sm font-semibold mb-2">HABITACIONES</h2>
       <div>
-        {rooms.room_image?.url && (
+        {rooms[current].room_image?.url && (
           <Image
-            src={rooms?.room_image.url}
-            alt={rooms?.room_image.alt}
+            src={rooms[current]?.room_image.url}
+            alt={rooms[current]?.room_image.alt}
             objectFit="cover"
             width={1000}
             height={800}
@@ -58,8 +49,12 @@ const RoomsSection = () => {
             className={`rounded-button ${current === 4 ? 'bg-gray-500' : ''}`}
           ></button>
         </div>
-        <h3 className="text-sm font-semibold py-1">{rooms?.room_title}</h3>
-        <p className="text-xs leading-normal">{rooms?.room_description}</p>
+        <h3 className="text-sm font-semibold py-1">
+          {rooms[current]?.room_title}
+        </h3>
+        <p className="text-xs leading-normal">
+          {rooms[current]?.room_description}
+        </p>
         <button className="euro-button px-10 my-6">Ver más</button>
       </div>
       {/* {rooms?.map((euro, i) => {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/outline'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -7,12 +7,10 @@ import { useRouter } from 'next/router'
 import RoomSlider from './RoomSlider'
 import NumberOfGuests from './NumberOfGuests'
 
-const Booking = () => {
+const Booking = ({ rooms }) => {
   const [datePicker, setDatePicker] = useState(false)
-  // const [roomsSlider, setRoomsSlider] = useState(false)
   const [startDate, setStartDate] = useState(null)
   const [endDate, setEndDate] = useState(null)
-  const [roomList, setRoomList] = useState([])
   const [roomTitle, setRoomTitle] = useState('')
   console.log(roomTitle)
 
@@ -36,12 +34,7 @@ const Booking = () => {
   const decrementKids = () => {
     setKids(kids > 1 ? kids - 1 : (kids = 0))
   }
-  // // Cancel Booking close Date Range Picker and Number of Guest inputs
-  // const cancelBookinn = () => {
-  //   setRoomsSlider(false)
-  //   setDatePicker(false)
-  // }
-  // roomPage function will open the RoomPage
+
   const roomPage = () => {
     if ((kids, adults, startDate, endDate)) {
       router.push({
@@ -58,15 +51,6 @@ const Booking = () => {
       setDatePicker(!datePicker)
     }
   }
-  // Users data provide in the Home page
-  useEffect(() => {
-    window
-      .fetch('/api/rooms')
-      .then((res) => res.json())
-      .then(({ rooms }) => {
-        setRoomList(rooms)
-      })
-  }, [])
 
   return (
     <div className="px-5 max-w-[320px] mx-auto">
@@ -133,7 +117,7 @@ const Booking = () => {
             Seleccione su habitación
           </h2>
           <div className="flex sliderContainer w-[280px] gap-8 mx-auto pb-3">
-            {roomList?.map(
+            {rooms?.map(
               ({
                 id,
                 room_title,
@@ -152,17 +136,6 @@ const Booking = () => {
               )
             )}
           </div>
-          {/* <div className="flex">
-            <button className="flex-grow text-gray-500" onClick={cancelBookinn}>
-              Cancel
-            </button>
-            <button
-              onClick={() => setRoomsSlider(!roomsSlider)}
-              className="flex-grow text-primary"
-            >
-              Continue
-            </button>
-          </div> */}
         </div>
       )}
       <div className="px-5">

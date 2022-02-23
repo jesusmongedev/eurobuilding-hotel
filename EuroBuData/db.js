@@ -1,6 +1,4 @@
 import allData from './EuroRoomsData.json'
-import allOpinions from './EuroOpinionsData.json'
-
 class Database {
   constructor() {}
 
@@ -8,19 +6,6 @@ class Database {
     return new Promise(async (resolve, reject) => {
       try {
         const asArray = Object.values(allData)
-        // console.log("allDATA:", asArray);
-        await randomDelay()
-        resolve(asArray)
-      } catch (error) {
-        reject(error)
-      }
-    })
-  }
-
-  getOpinions() {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const asArray = Object.values(allOpinions)
         // console.log("allDATA:", asArray);
         await randomDelay()
         resolve(asArray)
