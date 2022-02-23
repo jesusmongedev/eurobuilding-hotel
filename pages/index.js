@@ -5,20 +5,22 @@ import EuroBuSlider from '../Components/EuroBuSlider'
 import HeroVideo from '../Components/HeroVideo'
 import Opiniones from '../Components/Opiniones'
 import RoomsSection from '../Components/RoomsSection'
-import { server } from '../config'
+import rooms from '../EuroBuData/roomsData'
 
-export const getStaticProps = async () => {
-  const res = await fetch(`${server}/api/rooms`)
-  const { rooms } = await res.json()
+// import { server } from '../config'
 
-  return {
-    props: {
-      rooms,
-    },
-  }
-}
+// export const getStaticProps = async () => {
+//   const res = await fetch(`${server}/api/rooms`)
+//   const { rooms } = await res.json()
 
-export default function Home({ rooms }) {
+//   return {
+//     props: {
+//       rooms,
+//     },
+//   }
+// }
+
+export default function Home() {
   return (
     <>
       <Head>
