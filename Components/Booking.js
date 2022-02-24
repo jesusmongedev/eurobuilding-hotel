@@ -9,8 +9,8 @@ import NumberOfGuests from './NumberOfGuests'
 
 const Booking = ({ rooms }) => {
   const [datePicker, setDatePicker] = useState(false)
-  const [startDate, setStartDate] = useState(new Date())
-  const [endDate, setEndDate] = useState(new Date())
+  const [startDate, setStartDate] = useState(null)
+  const [endDate, setEndDate] = useState(null)
   const [roomTitle, setRoomTitle] = useState('')
 
   const formattedStartDate = format(new Date(startDate), 'dd/MM/yy')

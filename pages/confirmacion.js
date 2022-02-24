@@ -1,30 +1,48 @@
 import { useRouter } from 'next/router'
 import { format } from 'date-fns'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Head from 'next/head'
 
 const Rooms = () => {
   const router = useRouter()
-  const [roomList, setRoomList] = useState([])
   const [confirmationClicked, setConfirmationClicked] = useState(false)
 
   //ES6 Destructuring
   const { adults, kids, startDate, endDate, roomTitle } = router.query
-  const guests = parseInt(adults) + parseInt(kids)
-  // Formatted Start and endd Date
-  const formattedStartDate = format(new Date(startDate), 'dd/MM/yyyy')
-  const formattedEndDate = format(new Date(endDate), 'dd/MM/yyyy')
-  // const range = `${formattedStartDate} - ${formattedEndDate}`
+  console.log(startDate)
 
-  // Users data provide in the Home page
-  useEffect(() => {
-    window
-      .fetch('/api/rooms')
-      .then((res) => res.json())
-      .then(({ rooms }) => {
-        setRoomList(rooms)
-      })
-  }, [])
+  const getUTCStartDate = (dateString = Date.now(startDate)) => {
+    const date = new Date(dateString)
+
+    return new Date(
+      date.getUTCFullYear(),
+      date.getUTCMonth(),
+      date.getUTCDate(),
+      date.getUTCHours(),
+      date.getUTCMinutes(),
+      date.getUTCSeconds()
+    )
+  }
+
+  const getUTCEndtDate = (dateString = Date.now(endDate)) => {
+    const date = new Date(dateString)
+
+    return new Date(
+      date.getUTCFullYear(),
+      date.getUTCMonth(),
+      date.getUTCDate(),
+      date.getUTCHours(),
+      date.getUTCMinutes(),
+      date.getUTCSeconds()
+    )
+  }
+
+  // Formatted Start and end Date
+  const formattedStartDate = format(getUTCStartDate(), 'dd/MM/yyyy')
+  console.log(formattedStartDate)
+  const formattedEndDate = format(getUTCEndtDate(), 'dd/MM/yyyy')
+  console.log(formattedEndDate)
+  // const range = `${formattedStartDate} - ${formattedEndDate}`
 
   return (
     <>
