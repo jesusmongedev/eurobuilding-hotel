@@ -10,9 +10,10 @@ const Rooms = () => {
   //ES6 Destructuring
   const { adults, kids, startDate, endDate, roomTitle } = router.query
   console.log(startDate)
+  console.log(endDate)
 
-  const getUTCStartDate = (dateString = Date.now(startDate)) => {
-    const date = new Date(dateString)
+  const getUTCStartDate = (dateStartString = Date.now()) => {
+    const date = new Date(dateStartString)
 
     return new Date(
       date.getUTCFullYear(),
@@ -24,8 +25,8 @@ const Rooms = () => {
     )
   }
 
-  const getUTCEndtDate = (dateString = Date.now(endDate)) => {
-    const date = new Date(dateString)
+  const getUTCEndtDate = (dateEndString = Date.now()) => {
+    const date = new Date(dateEndString)
 
     return new Date(
       date.getUTCFullYear(),
@@ -38,9 +39,9 @@ const Rooms = () => {
   }
 
   // Formatted Start and end Date
-  const formattedStartDate = format(getUTCStartDate(), 'dd/MM/yyyy')
+  const formattedStartDate = format(getUTCStartDate(startDate), 'dd/MM/yyyy')
   console.log(formattedStartDate)
-  const formattedEndDate = format(getUTCEndtDate(), 'dd/MM/yyyy')
+  const formattedEndDate = format(getUTCEndtDate(endDate), 'dd/MM/yyyy')
   console.log(formattedEndDate)
   // const range = `${formattedStartDate} - ${formattedEndDate}`
 
