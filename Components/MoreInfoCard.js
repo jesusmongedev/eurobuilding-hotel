@@ -5,12 +5,19 @@ const MoreInfoCard = ({
   room_price,
   handleMoreInfoCard,
   handleRoomName,
+  habitacionSeleccionada,
+  verMas,
 }) => {
   return (
-    <div className="flex flex-col px-2 text-sm gap-[1.273rem] mt-1">
+    <div className="flex flex-col px-2 text-sm gap-[1.305rem] mt-1">
       <div className="flex flex-1 items-center justify-between">
         <h3 className="font-bold">Características</h3>
-        <button onClick={handleMoreInfoCard} className="px-6 border rounded-md">
+        <button
+          onClick={handleMoreInfoCard}
+          className={`px-6 border rounded-md ${
+            verMas ? 'bg-primary border-none' : ''
+          }`}
+        >
           Ver menos
         </button>
       </div>
@@ -52,7 +59,9 @@ const MoreInfoCard = ({
         </div>
       </div> */}
       <button
-        className="border rounded-md font-semibold"
+        className={`border rounded-md font-semibold ${
+          habitacionSeleccionada ? 'bg-primary' : ''
+        } `}
         onClick={() => handleRoomName(room_title)}
       >
         Escoger

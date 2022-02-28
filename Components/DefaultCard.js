@@ -5,6 +5,8 @@ const DefaultCard = ({
   room_title,
   handleDefaultCard,
   handleRoomName,
+  habitacionSeleccionada,
+  verMas,
 }) => {
   return (
     <div className="flex flex-col mt-auto space-y-2 px-2 text-sm">
@@ -28,7 +30,9 @@ const DefaultCard = ({
         </div>
       </div>
       <button
-        className="border rounded-md font-semibold"
+        className={`border rounded-md font-semibold ${
+          habitacionSeleccionada ? 'bg-primary' : ''
+        } `}
         onClick={() => handleRoomName(room_title)}
       >
         Escoger

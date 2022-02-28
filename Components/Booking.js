@@ -91,15 +91,17 @@ const Booking = ({ rooms }) => {
       {datePicker && (
         <div className="flex flex-col gap-2">
           <div className="text-center">
-            <DatePicker
-              selected={startDate}
-              onChange={onChange}
-              startDate={startDate}
-              endDate={endDate}
-              minDate={new Date()}
-              selectsRange
-              inline
-            />
+            {!endDate && (
+              <DatePicker
+                selected={startDate}
+                onChange={onChange}
+                startDate={startDate}
+                endDate={endDate}
+                minDate={new Date()}
+                selectsRange
+                inline
+              />
+            )}
           </div>
 
           <h2 className="text-xl font-semibold text-center">Huéspedes</h2>
@@ -137,7 +139,7 @@ const Booking = ({ rooms }) => {
           </div>
         </div>
       )}
-      <div className="px-5">
+      <div>
         <button
           onClick={roomPage}
           className="bg-primary text-white rounded-lg py-1 mb-6 w-full"
