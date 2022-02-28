@@ -55,7 +55,7 @@ const RoomsSection = ({ rooms }) => {
         <p className="text-xs leading-normal">
           {rooms[current]?.room_description}
         </p>
-        <button className="euro-button px-10 my-6">Ver más</button>
+        <button className="euro-button px-10 my-6 text-sm">Ver más</button>
       </div>
       {/* {rooms?.map((euro, i) => {
           return (

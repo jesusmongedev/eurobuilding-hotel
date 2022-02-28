@@ -58,7 +58,7 @@ const Booking = ({ rooms }) => {
 
         <div className="flex justify-between">
           <span
-            className="euro-button flex flex-col"
+            className="euro-button flex flex-col text-sm"
             onClick={() => setDatePicker(!datePicker)}
           >
             <div>
@@ -72,7 +72,7 @@ const Booking = ({ rooms }) => {
             )}
           </span>
           <span
-            className="euro-button flex flex-col"
+            className="euro-button flex flex-col text-sm"
             onClick={() => setDatePicker(!datePicker)}
           >
             <div>

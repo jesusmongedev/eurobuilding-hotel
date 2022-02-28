@@ -9,7 +9,7 @@ const AboutHotel = () => {
         incidunt? Saepe, tenetur dicta expedita corrupti velit natus ea at quo
         delectus ...
       </p>
-      <button className="euro-button px-10 my-6">Ver más</button>
+      <button className="euro-button px-10 my-6 text-sm">Ver más</button>
     </div>
   )
 }
