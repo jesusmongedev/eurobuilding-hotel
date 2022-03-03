@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi'
 
 const EuroBuSlider = ({ rooms }) => {

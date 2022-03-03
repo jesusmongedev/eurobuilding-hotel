@@ -3,14 +3,14 @@ const opinions = [
     name: 'Fatima Villon',
     decription:
       'Solo he visitado el restaurante de ese hotel, el servicio fue excelente, todo estaba muy limpio y la comida era deliciosa espero quedarme como huésped pronto.',
-    image: 'https://i.imgur.com/56DTiRn.pngg',
+    image: 'https://i.imgur.com/UFhDAr5.jpg',
     star: 3,
   },
   {
     name: 'Antonio Silva',
     decription:
       'Es uno de los hoteles mar importantes del país, cuenta con piscina, cancha de tenis, restaurantes, tiendas etc. Es un hotel con gran trayectoria e historia.',
-    image: 'https://i.imgur.com/56DTiRn.png',
+    image: 'https://i.imgur.com/gULODPH.jpg',
     star: 4,
   },
   {

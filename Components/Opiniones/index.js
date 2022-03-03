@@ -1,10 +1,19 @@
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AiFillStar } from 'react-icons/ai'
 import opinions from './data'
 
 const Opiniones = () => {
   const [current, setCurrent] = useState(0)
+  // const opinionsLenth = opinions.length
+
+  // Test with useRef
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     const currentValue = current === opinionsLenth - 1 ? 0 : current + 1
+  //     setCurrent(currentValue)
+  //   }, 4000)
+  // }, [current, opinionsLenth])
 
   return (
     <div className="bg-gray-200 px-4 pt-4 pb-2">

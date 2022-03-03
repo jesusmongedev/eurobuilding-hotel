@@ -57,22 +57,6 @@ const RoomsSection = ({ rooms }) => {
         </p>
         <button className="euro-button px-10 my-6 text-sm">Ver más</button>
       </div>
-      {/* {rooms?.map((euro, i) => {
-          return (
-            <div key={i} className="min-w-[288px] max-w-[328px] sliderCards ">
-              <Image
-                src={euro.room_image.url}
-                alt={euro.room_image.alt}
-                objectFit="cover"
-                width={1000}
-                height={800}
-              />
-              <h3 className="text-sm font-semibold py-1">{euro.room_title}</h3>
-              <p className="text-xs leading-normal">{euro.room_description}</p>
-              <button className="euro-button px-10 my-6">Ver más</button>
-            </div>
-          )
-        })} */}
     </section>
   )
 }
