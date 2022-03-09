@@ -16,7 +16,7 @@ const Opiniones = () => {
   // }, [current, opinionsLenth])
 
   return (
-    <div className="bg-gray-200 px-4 pt-4 pb-2">
+    <div className="bg-gray-200 px-4 pt-4 pb-2" id="profile">
       <h2 className="text-sm font-semibold mb-2">OPINIONES</h2>
       <p className="text-xs">{opinions[current]?.decription}</p>
       <div className="flex gap-2 mt-3 mb-2 items-center">

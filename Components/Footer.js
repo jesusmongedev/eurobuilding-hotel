@@ -3,7 +3,7 @@ import { MdSmartphone } from 'react-icons/md'
 
 const Footer = () => {
   return (
-    <footer className="py-10 px-5 bg-primary text-white text-md space-y-8 sm:flex sm:justify-around sm:items-center sm:space-y-0">
+    <footer className="py-10 px-5 bg-primary text-white text-md space-y-8 sm:flex sm:justify-around sm:items-center sm:space-y-0 mb-16">
       <div className="space-y-2">
         <h3 className="text-lg font-semibold">Contactos</h3>
         <ul className="space-y-4">

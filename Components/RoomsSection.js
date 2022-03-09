@@ -5,7 +5,7 @@ const RoomsSection = ({ rooms }) => {
   const [current, setCurrent] = useState(0)
 
   return (
-    <section className="px-4">
+    <section className="px-4" id="rooms">
       <h2 className="text-sm font-semibold mb-2">HABITACIONES</h2>
       <div>
         {rooms[current].room_image?.url && (
