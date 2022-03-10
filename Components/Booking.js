@@ -52,7 +52,7 @@ const Booking = ({ rooms }) => {
   }
 
   return (
-    <div className="px-5 max-w-[320px] mx-auto">
+    <div className="px-5 max-w-[320px] mx-auto" id="booking">
       <div className="flex flex-col gap-2 py-5">
         <h2 className="text-sm font-semibold"> HAGA SU RESERVACIÓN </h2>
 
